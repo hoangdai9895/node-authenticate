@@ -1,5 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from "@angular/http";
 
 import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
@@ -11,6 +13,12 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 // router
 import { RouterModule, Routes } from "@angular/router";
 import { ProfileComponent } from "./components/profile/profile.component";
+
+// svervices
+import { ValidateService } from "./services/validate.service";
+
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   {
@@ -45,8 +53,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), FlashMessagesModule.forRoot(), FormsModule, HttpModule],
+  providers: [ValidateService, AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

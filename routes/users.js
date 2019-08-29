@@ -72,7 +72,8 @@ router.post('/validate', (req, res, next) => {
                     if (err) throw err
                     res.json({
                         success: true,
-                        token: `Bearer ${token}`
+                        token: `Bearer ${token}`,
+                        user
                     })
                 })
             } else {

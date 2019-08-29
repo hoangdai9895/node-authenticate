@@ -24,7 +24,7 @@ app.use(passport.session())
 require('./config/passport')(passport)
 
 //port
-const port = 3000
+const port = process.env.PORT || 8080
 
 //cors
 app.use(cors());
